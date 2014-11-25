@@ -1,0 +1,90 @@
+<!Doctype HTML>
+<Html>
+<head>
+<title>RV's Blog</title>
+<meta charset="UTF-8">
+<META pragmat="no-cache">
+<META user-agent="Chrome">
+<link rel ="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="jquery-2.1.1.js"></script>
+<script>
+$(document).ready(function(){
+var audio;
+var playlist;
+var tracks;
+var current;
+playList();
+var header = $('body');
+var backgrounds = new Array(
+    'url(3d-Wallpaper-Hd.jpg)'
+  , 'url(bulb-3d.jpg)'
+);
+var colors = new Array(
+	'palegoldenrod'
+	,'springgreen'
+);
+
+var current = 0;
+
+function nextBackground() {
+    current++;
+    current = current % backgrounds.length;
+    header.css('background', backgrounds[current]);
+	 header.css('color', colors[current]);
+}
+setInterval(nextBackground, 40000);
+							 
+header.css('background', backgrounds[0]);
+header.css('color', colors[0]);
+});
+
+	function playList(){
+	    current = 0;
+	    audio = $('audio');
+	    tracks = new Array(
+	    	"Godfather_Theme_-_Italian_Violin.mp3",
+	    	"Kaise Mujhe (Instrumental).mp3",
+	    	"JTHJ - Ishq Dance.mp3",
+	    	"HAI MERA DIL.mp3",
+	    	"Dhoom 3 - Dhoom 3 Overture (Instrumental).mp3",
+	    	"KABUL EXPRESS THEME (INSTRUMENTAL).mp3"
+	    	);
+	    len = tracks.length - 1;
+	    audio[0].volume = .05;
+	    audio[0].play();
+	    audio[0].addEventListener('ended',function(e){
+	        current++;
+	        if(current == len){
+	            current = 0;
+	            link = tracks[0];
+	        }else{
+	            link = tracks[current];    
+	        }
+	        run(link,audio[0]);
+	    });
+	}
+	function run(link, player){
+	        player.src = link;
+	        audio[0].load();
+	        audio[0].play();
+	}
+</script>
+</head>
+	<body>
+		<header>
+			<figure class="author"></figure>
+			<hgroup>
+				<h2 class="center">Ramit Vakil</h2>
+			</hgroup>
+		</header>
+		<SECTION>
+			<a href="#" onclick="mailto:ramitvakil@gmail.com">
+				Ramit Vakil
+			</a>
+		</SECTION>
+ 		<audio id="audio" preload="auto" tabindex="0" autoplay controls type="audio/mpeg">
+        	<source src="you spin my head.mp3" type="audio/mpeg">
+    	</audio>
+    	<FOOTER>&copy;Ramit Vakil</FOOTER>
+	</body>
+</html>
