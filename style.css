@@ -1,0 +1,25 @@
+body{
+	background: url('3d-Wallpaper-Hd.jpg');
+	color: palegoldenrod;
+}
+
+header hgroup{
+font-size:18px;
+}
+.center{
+text-align:center;
+padding-top:10px;
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+margin-left:320px;
+}
+.author{
+float:right;
+background-image:url('ramit.jpg');
+border-radius:100px;
+width: 200px;
+height: 225px;
+background-position-x: -3px;
+background-position-y: -15px;
+margin-top:-15px;
+margin-right:-5px;
+}
